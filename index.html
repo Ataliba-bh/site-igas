@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iGás | Modernize sua Distribuidora</title>
+  <meta name="description" content="iGás — Ecossistema completo para distribuidoras de gás e água. App para clientes, gestor de mesa e infraestrutura em nuvem.">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Paleta premium: azuis profundos, branco, cinza
+            primary: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+              950: '#172554',
+            },
+            igas: {
+              dark: '#0f172a',   // Slate 900 - azul muito escuro
+              navy: '#1e293b',   // Slate 800
+              steel: '#334155',  // Slate 700
+              mist: '#64748b',   // Slate 500
+              cloud: '#f1f5f9',  // Slate 100
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Google Fonts - Inter para estética SaaS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="font-sans text-igas-dark bg-white antialiased">
+
+  <!-- ============================================
+       NAVEGAÇÃO
+       Barra fixa no topo com logo e links suaves
+       ============================================ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16 lg:h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-600 to-primary-800 flex items-center justify-center">
+            <i data-lucide="flame" class="w-6 h-6 text-white"></i>
+          </div>
+          <span class="text-xl font-bold text-igas-dark">i<span class="text-primary-600">Gás</span></span>
+        </a>
+        
+        <!-- Links desktop -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#jornada" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Jornada iGás</a>
+          <a href="#app" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">O Aplicativo</a>
+          <a href="#gestor" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Gestor de Mesa</a>
+          <a href="#infra" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Infraestrutura</a>
+          <a href="#produtos" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Produtos</a>
+          <a href="#demonstracao" class="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-lg font-semibold transition-all shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40">
+            Solicitar Demo
+          </a>
+        </div>
+        
+        <!-- Menu mobile -->
+        <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-igas-cloud transition-colors" aria-label="Abrir menu">
+          <i data-lucide="menu" class="w-6 h-6 text-igas-steel"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Menu mobile expandido -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white">
+      <div class="px-4 py-4 space-y-2">
+        <a href="#jornada" class="block py-2 text-igas-steel hover:text-primary-600">Jornada iGás</a>
+        <a href="#app" class="block py-2 text-igas-steel hover:text-primary-600">O Aplicativo</a>
+        <a href="#gestor" class="block py-2 text-igas-steel hover:text-primary-600">Gestor de Mesa</a>
+        <a href="#infra" class="block py-2 text-igas-steel hover:text-primary-600">Infraestrutura</a>
+        <a href="#produtos" class="block py-2 text-igas-steel hover:text-primary-600">Produtos</a>
+        <a href="#demonstracao" class="block py-3 text-center bg-primary-600 text-white rounded-lg font-semibold">Solicitar Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       HERO
+       Título impactante + placeholder para imagem
+       App + Desktop combinados
+       ============================================ -->
+  <section class="pt-24 lg:pt-32 pb-16 lg:pb-24 bg-gradient-to-b from-igas-cloud/50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Conteúdo textual -->
+        <div>
+          <span class="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-6">
+            Ecossistema Completo
+          </span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-igas-dark leading-tight">
+            Modernize sua
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-800">distribuidora</span>
+            em dias
+          </h1>
+          <p class="mt-6 text-lg text-igas-mist max-w-xl leading-relaxed">
+            O iGás é o ecossistema completo para distribuidoras: app para clientes, gestor de mesa para sua equipe e infraestrutura em nuvem. 
+            Tudo integrado para levar sua distribuidora ao próximo nível.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a href="#demonstracao" class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold transition-all shadow-xl shadow-primary-500/30 hover:shadow-primary-500/50 hover:-translate-y-0.5">
+              <i data-lucide="play-circle" class="w-5 h-5"></i>
+              Solicitar Demonstração
+            </a>
+            <a href="#app" class="inline-flex items-center gap-2 text-igas-steel hover:text-primary-600 font-semibold transition-colors">
+              <i data-lucide="smartphone" class="w-5 h-5"></i>
+              Conhecer o App
+            </a>
+          </div>
+        </div>
+        
+        <!-- Placeholder: Imagem combinando App + Desktop -->
+        <div class="relative">
+          <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-igas-navy to-igas-dark p-8 lg:p-12 shadow-2xl shadow-slate-900/20">
+            <!-- Mockup: Desktop à esquerda, smartphone à direita -->
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8">
+              <!-- Mock Desktop -->
+              <div class="w-full max-w-[280px] lg:max-w-[320px]">
+                <div class="rounded-lg bg-slate-800/80 border border-slate-600/50 overflow-hidden">
+                  <div class="h-6 bg-slate-700/80 flex items-center gap-1.5 px-3">
+                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                  </div>
+                  <div class="h-40 lg:h-48 bg-slate-900/60 flex items-center justify-center">
+                    <i data-lucide="monitor" class="w-16 h-16 text-primary-400/60"></i>
+                  </div>
+                </div>
+                <p class="text-center text-slate-400 text-sm mt-2 font-medium">Gestor de Mesa</p>
+              </div>
+              <!-- Mock Smartphone -->
+              <div class="w-full max-w-[140px] lg:max-w-[160px]">
+                <div class="rounded-2xl bg-slate-800 border-2 border-slate-600/50 overflow-hidden shadow-xl">
+                  <div class="h-5 bg-slate-700 flex items-center justify-center">
+                    <div class="w-12 h-1.5 rounded-full bg-slate-600"></div>
+                  </div>
+                  <div class="h-36 lg:h-44 bg-slate-900/60 flex items-center justify-center">
+                    <i data-lucide="smartphone" class="w-12 h-12 text-primary-400/60"></i>
+                  </div>
+                </div>
+                <p class="text-center text-slate-400 text-sm mt-2 font-medium">App Cliente</p>
+              </div>
+            </div>
+            <!-- Badge "Screenshots em breve" -->
+            <div class="absolute bottom-4 right-4 px-3 py-1 rounded-lg bg-white/10 text-slate-300 text-xs">
+              Placeholder — Screenshots em breve
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       JORNADA iGÁS
+       Como funciona o iGás no seu Smartphone
+       5 passos sequenciais com espaço para imagens
+       ============================================ -->
+  <section id="jornada" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-4">
+          Jornada iGás
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-igas-dark">
+          Como funciona o iGás no seu Smartphone
+        </h2>
+        <p class="mt-4 text-lg text-igas-mist">
+          Do pedido à entrega em 5 passos simples e intuitivos.
+        </p>
+      </div>
+      
+      <!-- 5 passos da jornada com espaço para imagens -->
+      <div class="space-y-12 lg:space-y-16">
+        <!-- Passo 1: Seleção de Produtos -->
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div class="order-2 lg:order-1 p-6 lg:p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary-500/30">
+                <i data-lucide="shopping-bag" class="w-7 h-7 text-white"></i>
+              </div>
+              <div>
+                <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 1</span>
+                <h3 class="mt-1 font-bold text-igas-dark text-xl">Escolha seu Produto</h3>
+                <p class="mt-3 text-igas-mist leading-relaxed">
+                  Uma vitrine intuitiva onde o cliente visualiza o catálogo completo de gás e água com apenas alguns toques.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2 p-6 lg:p-8">
+            <img src="imagens/1.jpg" alt="Passo 1 - Seleção de Produtos" class="max-w-[280px] h-auto rounded-lg mx-auto">
+          </div>
+        </div>
+
+        <!-- Passo 2: Detalhes e Quantidade -->
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div class="p-6 lg:p-8">
+            <img src="imagens/2.jpg" alt="Passo 2 - Detalhes e Quantidade" class="max-w-[280px] h-auto rounded-lg mx-auto">
+          </div>
+          <div class="p-6 lg:p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary-500/30">
+                <i data-lucide="list-checks" class="w-7 h-7 text-white"></i>
+              </div>
+              <div>
+                <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 2</span>
+                <h3 class="mt-1 font-bold text-igas-dark text-xl">Personalize o Pedido</h3>
+                <p class="mt-3 text-igas-mist leading-relaxed">
+                  O cliente vê a foto real do produto, ajusta a quantidade necessária e adiciona ao carrinho com facilidade.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Passo 3: Revisão do Carrinho -->
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div class="order-2 lg:order-1 p-6 lg:p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary-500/30">
+                <i data-lucide="shopping-cart" class="w-7 h-7 text-white"></i>
+              </div>
+              <div>
+                <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 3</span>
+                <h3 class="mt-1 font-bold text-igas-dark text-xl">Revise sua Compra</h3>
+                <p class="mt-3 text-igas-mist leading-relaxed">
+                  Um carrinho organizado para conferir itens, valores e continuar comprando se desejar.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2 p-6 lg:p-8">
+            <img src="imagens/3.jpg" alt="Passo 3 - Revisão do Carrinho" class="max-w-[280px] h-auto rounded-lg mx-auto">
+          </div>
+        </div>
+
+        <!-- Passo 4: Escolha do Pagamento -->
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div class="p-6 lg:p-8">
+            <img src="imagens/4.jpg" alt="Passo 4 - Escolha do Pagamento" class="max-w-[280px] h-auto rounded-lg mx-auto">
+          </div>
+          <div class="p-6 lg:p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary-500/30">
+                <i data-lucide="wallet" class="w-7 h-7 text-white"></i>
+              </div>
+              <div>
+                <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 4</span>
+                <h3 class="mt-1 font-bold text-igas-dark text-xl">Formas Flexíveis</h3>
+                <p class="mt-3 text-igas-mist leading-relaxed">
+                  Seleção rápida de pagamento: Dinheiro, PIX ou Cartão, direto pelo aplicativo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Passo 5: Confirmação de Entrega e Troco -->
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div class="order-2 lg:order-1 p-6 lg:p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary-500/30">
+                <i data-lucide="package-check" class="w-7 h-7 text-white"></i>
+              </div>
+              <div>
+                <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 5</span>
+                <h3 class="mt-1 font-bold text-igas-dark text-xl">Entrega Garantida</h3>
+                <p class="mt-3 text-igas-mist leading-relaxed">
+                  Resumo final com local de entrega, valor total e cálculo de troco, garantindo segurança para quem compra e para quem entrega.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2 p-6 lg:p-8">
+            <img src="imagens/5.jpg" alt="Passo 5 - Confirmação de Entrega e Troco" class="max-w-[280px] h-auto rounded-lg mx-auto">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       O APLICATIVO (SMARTPHONE)
+       5 passos da jornada do cliente
+       Destaque: cadastro fácil com CEP e endereço
+       ============================================ -->
+  <section id="app" class="py-20 lg:py-28 bg-igas-cloud/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-4">
+          Para seus clientes
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-igas-dark">
+          O Aplicativo que simplifica o pedido
+        </h2>
+        <p class="mt-4 text-lg text-igas-mist">
+          Jornada intuitiva em 5 passos. Cadastro rápido com CEP e endereço automático.
+        </p>
+      </div>
+      
+      <!-- 5 passos da jornada -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
+        <!-- Passo 1 -->
+        <div class="relative group">
+          <div class="bg-igas-cloud/50 rounded-2xl p-6 border border-slate-200/80 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-500/10 transition-all h-full">
+            <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors">
+              <i data-lucide="user-plus" class="w-6 h-6 text-primary-600"></i>
+            </div>
+            <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 1</span>
+            <h3 class="mt-1 font-semibold text-igas-dark text-lg">Cadastro Rápido</h3>
+            <p class="mt-2 text-igas-mist text-sm">
+              Informe o <strong>CEP</strong> e o endereço é preenchido automaticamente. Sem complicação.
+            </p>
+          </div>
+          <div class="hidden lg:block absolute top-1/2 -right-2 w-4 h-0.5 bg-slate-200"></div>
+        </div>
+        
+        <!-- Passo 2 -->
+        <div class="relative group">
+          <div class="bg-igas-cloud/50 rounded-2xl p-6 border border-slate-200/80 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-500/10 transition-all h-full">
+            <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors">
+              <i data-lucide="package" class="w-6 h-6 text-primary-600"></i>
+            </div>
+            <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 2</span>
+            <h3 class="mt-1 font-semibold text-igas-dark text-lg">Escolha o Produto</h3>
+            <p class="mt-2 text-igas-mist text-sm">
+              Gás ou água? Selecione o tipo e a quantidade desejada em poucos toques.
+            </p>
+          </div>
+          <div class="hidden lg:block absolute top-1/2 -right-2 w-4 h-0.5 bg-slate-200"></div>
+        </div>
+        
+        <!-- Passo 3 -->
+        <div class="relative group">
+          <div class="bg-igas-cloud/50 rounded-2xl p-6 border border-slate-200/80 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-500/10 transition-all h-full">
+            <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors">
+              <i data-lucide="map-pin" class="w-6 h-6 text-primary-600"></i>
+            </div>
+            <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 3</span>
+            <h3 class="mt-1 font-semibold text-igas-dark text-lg">Confirme o Endereço</h3>
+            <p class="mt-2 text-igas-mist text-sm">
+              Endereço já preenchido pelo CEP. Basta conferir e ajustar se necessário.
+            </p>
+          </div>
+          <div class="hidden lg:block absolute top-1/2 -right-2 w-4 h-0.5 bg-slate-200"></div>
+        </div>
+        
+        <!-- Passo 4 -->
+        <div class="relative group">
+          <div class="bg-igas-cloud/50 rounded-2xl p-6 border border-slate-200/80 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-500/10 transition-all h-full">
+            <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors">
+              <i data-lucide="credit-card" class="w-6 h-6 text-primary-600"></i>
+            </div>
+            <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 4</span>
+            <h3 class="mt-1 font-semibold text-igas-dark text-lg">Pagamento</h3>
+            <p class="mt-2 text-igas-mist text-sm">
+              Formas de pagamento flexíveis. PIX, cartão ou dinheiro na entrega.
+            </p>
+          </div>
+          <div class="hidden lg:block absolute top-1/2 -right-2 w-4 h-0.5 bg-slate-200"></div>
+        </div>
+        
+        <!-- Passo 5 -->
+        <div class="relative group">
+          <div class="bg-igas-cloud/50 rounded-2xl p-6 border border-slate-200/80 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-500/10 transition-all h-full">
+            <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors">
+              <i data-lucide="truck" class="w-6 h-6 text-primary-600"></i>
+            </div>
+            <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 5</span>
+            <h3 class="mt-1 font-semibold text-igas-dark text-lg">Acompanhe a Entrega</h3>
+            <p class="mt-2 text-igas-mist text-sm">
+              Status em tempo real. Cliente informado em cada etapa do pedido.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Destaque CEP -->
+      <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 p-6 rounded-2xl bg-gradient-to-r from-primary-50 to-primary-100/50 border border-primary-100">
+        <i data-lucide="map-pinned" class="w-10 h-10 text-primary-600 flex-shrink-0"></i>
+        <div class="text-center sm:text-left">
+          <p class="font-semibold text-igas-dark">Cadastro com CEP inteligente</p>
+          <p class="text-igas-mist text-sm">Digite o CEP e o endereço completo é preenchido automaticamente. Menos erros, mais agilidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       GESTOR DE MESA (PC/MAC)
+       Alerta sonoro + gestão de estoque/preços
+       ============================================ -->
+  <section id="gestor" class="py-20 lg:py-28 bg-igas-cloud/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Imagens do Gestor de Mesa -->
+        <div class="order-2 lg:order-1 space-y-6 max-w-4xl">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <img src="imagens/gestor.jpg" alt="Gestor de Mesa iGás — visão geral do software" class="gestor-lightbox-img w-full rounded-2xl shadow-2xl border border-slate-200/50 hover:scale-105 transition-transform cursor-pointer" data-src="imagens/gestor.jpg" role="button" tabindex="0">
+            <img src="imagens/gestor_detalhe.jpg" alt="Gestor de Mesa iGás — detalhes do pedido em dois cliques" class="gestor-lightbox-img w-full rounded-2xl shadow-2xl border border-slate-200/50 hover:scale-105 transition-transform cursor-pointer" data-src="imagens/gestor_detalhe.jpg" role="button" tabindex="0">
+          </div>
+          <p class="text-igas-mist text-sm lg:text-base leading-relaxed italic">
+            Agilidade total: com apenas dois cliques em qualquer pedido, você acessa instantaneamente os dados completos do comprador, endereço de entrega e itens solicitados.
+          </p>
+        </div>
+        
+        <!-- Conteúdo -->
+        <div class="order-1 lg:order-2">
+          <span class="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-4">
+            Para sua equipe
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-igas-dark">
+            Gestor de Mesa para PC e Mac
+          </h2>
+          <p class="mt-4 text-lg text-igas-mist">
+            Controle total da operação na ponta dos dedos. Multiplataforma: roda em Windows e macOS. Nunca perca um pedido.
+          </p>
+          
+          <!-- Features -->
+          <div class="mt-10 space-y-6">
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="bell-ring" class="w-6 h-6 text-primary-600"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-igas-dark text-lg">Alerta sonoro 🔔 de novo pedido</h3>
+                <p class="text-igas-mist mt-1">
+                  Aviso instantâneo a cada novo pedido. Sua equipe não perde nenhuma solicitação, mesmo em momentos de pico.
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="package-search" class="w-6 h-6 text-primary-600"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-igas-dark text-lg">Gestão de estoque simplificada</h3>
+                <p class="text-igas-mist mt-1">
+                  Controle de entrada e saída em tempo real. Saiba exatamente o que tem em estoque e evite rupturas.
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="tags" class="w-6 h-6 text-primary-600"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-igas-dark text-lg">Preços fáceis de atualizar</h3>
+                <p class="text-igas-mist mt-1">
+                  Altere preços de produtos em poucos cliques. Sincronização em tempo real com o banco MySQL — atualizações refletem instantaneamente no app do cliente.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       INFRAESTRUTURA
+       MySQL na nuvem - segurança dos dados
+       ============================================ -->
+  <section id="infra" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-4">
+          Segurança em primeiro lugar
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-igas-dark">
+          Infraestrutura em nuvem
+        </h2>
+        <p class="mt-4 text-lg text-igas-mist">
+          Seus dados protegidos com banco de dados MySQL na nuvem. Backups automáticos, 
+          alta disponibilidade e conformidade com as melhores práticas de segurança.
+        </p>
+        
+        <div class="mt-12 flex flex-wrap justify-center gap-6">
+          <div class="flex items-center gap-3 px-6 py-4 rounded-xl bg-igas-cloud/50 border border-slate-200">
+            <i data-lucide="database" class="w-8 h-8 text-primary-600"></i>
+            <span class="font-semibold text-igas-dark">MySQL na nuvem</span>
+          </div>
+          <div class="flex items-center gap-3 px-6 py-4 rounded-xl bg-igas-cloud/50 border border-slate-200">
+            <i data-lucide="shield-check" class="w-8 h-8 text-primary-600"></i>
+            <span class="font-semibold text-igas-dark">Dados seguros</span>
+          </div>
+          <div class="flex items-center gap-3 px-6 py-4 rounded-xl bg-igas-cloud/50 border border-slate-200">
+            <i data-lucide="cloud" class="w-8 h-8 text-primary-600"></i>
+            <span class="font-semibold text-igas-dark">Alta disponibilidade</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PRODUTOS
+       Cards: Gás (13kg, 20kg, 45kg) e Água (20L)
+       ============================================ -->
+  <section id="produtos" class="py-20 lg:py-28 bg-igas-cloud/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-4">
+          Catálogo
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-igas-dark">
+          Gás e Água com facilidade
+        </h2>
+        <p class="mt-4 text-lg text-igas-mist">
+          Produtos disponíveis para pedido direto pelo app. Gestão unificada no Gestor de Mesa.
+        </p>
+      </div>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Gás 13kg -->
+        <div class="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-primary-200 transition-all">
+          <div class="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
+            <i data-lucide="flame" class="w-7 h-7 text-orange-600"></i>
+          </div>
+          <h3 class="font-bold text-igas-dark text-xl">Gás 13kg</h3>
+          <p class="text-igas-mist mt-1 text-sm">Botijão P13 — uso residencial e comercial leve</p>
+        </div>
+        
+        <!-- Gás 20kg -->
+        <div class="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-primary-200 transition-all">
+          <div class="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
+            <i data-lucide="flame" class="w-7 h-7 text-orange-600"></i>
+          </div>
+          <h3 class="font-bold text-igas-dark text-xl">Gás 20kg</h3>
+          <p class="text-igas-mist mt-1 text-sm">Botijão P20 — uso residencial e comercial</p>
+        </div>
+        
+        <!-- Gás 45kg -->
+        <div class="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-primary-200 transition-all">
+          <div class="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
+            <i data-lucide="flame" class="w-7 h-7 text-orange-600"></i>
+          </div>
+          <h3 class="font-bold text-igas-dark text-xl">Gás 45kg</h3>
+          <p class="text-igas-mist mt-1 text-sm">Botijão P45 — uso comercial e industrial</p>
+        </div>
+        
+        <!-- Água 20L -->
+        <div class="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-primary-200 transition-all">
+          <div class="w-14 h-14 rounded-xl bg-cyan-100 flex items-center justify-center mb-4 group-hover:bg-cyan-200 transition-colors">
+            <i data-lucide="droplets" class="w-7 h-7 text-cyan-600"></i>
+          </div>
+          <h3 class="font-bold text-igas-dark text-xl">Água 20L</h3>
+          <p class="text-igas-mist mt-1 text-sm">Galão 20 litros — água purificada</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CONVERSÃO - Formulário + CTA
+       Solicitar Demonstração
+       ============================================ -->
+  <section id="demonstracao" class="py-20 lg:py-28 bg-gradient-to-br from-igas-dark via-igas-navy to-primary-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white">
+            Solicitar Demonstração
+          </h2>
+          <p class="mt-4 text-slate-300">
+            Preencha o formulário e nossa equipe entrará em contato para agendar uma demonstração personalizada.
+          </p>
+        </div>
+        
+        <form class="space-y-6 bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label for="nome" class="block text-sm font-medium text-slate-200 mb-2">Nome completo</label>
+              <input type="text" id="nome" name="nome" required 
+                class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition"
+                placeholder="Seu nome">
+            </div>
+            <div>
+              <label for="empresa" class="block text-sm font-medium text-slate-200 mb-2">Empresa / Distribuidora</label>
+              <input type="text" id="empresa" name="empresa" 
+                class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition"
+                placeholder="Nome da distribuidora">
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label for="email" class="block text-sm font-medium text-slate-200 mb-2">E-mail</label>
+              <input type="email" id="email" name="email" required 
+                class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition"
+                placeholder="seu@email.com">
+            </div>
+            <div>
+              <label for="telefone" class="block text-sm font-medium text-slate-200 mb-2">Telefone / WhatsApp</label>
+              <input type="tel" id="telefone" name="telefone" 
+                class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition"
+                placeholder="(00) 00000-0000">
+            </div>
+          </div>
+          <div>
+            <label for="mensagem" class="block text-sm font-medium text-slate-200 mb-2">Mensagem (opcional)</label>
+            <textarea id="mensagem" name="mensagem" rows="3" 
+              class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition resize-none"
+              placeholder="Conte um pouco sobre sua distribuidora..."></textarea>
+          </div>
+          <div class="pt-2">
+            <button type="submit" class="w-full py-4 rounded-xl bg-primary-600 hover:bg-primary-500 text-white font-semibold transition-all shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50 flex items-center justify-center gap-2">
+              <i data-lucide="send" class="w-5 h-5"></i>
+              Enviar solicitação
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       RODAPÉ PROFISSIONAL
+       ============================================ -->
+  <footer class="bg-igas-dark border-t border-slate-700/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <!-- Logo e descrição -->
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="#" class="flex items-center gap-2">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-600 to-primary-800 flex items-center justify-center">
+              <i data-lucide="flame" class="w-6 h-6 text-white"></i>
+            </div>
+            <span class="text-xl font-bold text-white">i<span class="text-primary-400">Gás</span></span>
+          </a>
+          <p class="mt-4 text-slate-400 text-sm">
+            iGás — Ecossistema completo para distribuidoras de gás e água.
+          </p>
+          <p class="mt-3 text-slate-500 text-xs italic">
+            Utilizado e aprovado por grandes distribuidoras com iGás.
+          </p>
+        </div>
+        
+        <!-- Links -->
+        <div>
+          <h4 class="font-semibold text-white mb-4">Produto</h4>
+          <ul class="space-y-2">
+            <li><a href="#jornada" class="text-slate-400 hover:text-white transition-colors">Jornada iGás</a></li>
+            <li><a href="#app" class="text-slate-400 hover:text-white transition-colors">O Aplicativo</a></li>
+            <li><a href="#gestor" class="text-slate-400 hover:text-white transition-colors">Gestor de Mesa</a></li>
+            <li><a href="#produtos" class="text-slate-400 hover:text-white transition-colors">Produtos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Empresa</h4>
+          <ul class="space-y-2">
+            <li><a href="#demonstracao" class="text-slate-400 hover:text-white transition-colors">Solicitar Demo</a></li>
+            <li><a href="#infra" class="text-slate-400 hover:text-white transition-colors">Infraestrutura</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-12 pt-8 border-t border-slate-700/50 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-slate-500 text-sm">
+          © <span id="ano"></span> iGás. Todos os direitos reservados.
+        </p>
+        <div class="flex gap-6">
+          <a href="#" class="text-slate-500 hover:text-white transition-colors" aria-label="Política de Privacidade">Privacidade</a>
+          <a href="#" class="text-slate-500 hover:text-white transition-colors" aria-label="Termos de Uso">Termos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       MODAL LIGHTBOX - Imagens do Gestor de Mesa
+       ============================================ -->
+  <div id="gestor-lightbox" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Visualização ampliada da imagem">
+    <button id="lightbox-close" class="absolute top-4 right-4 p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors z-10" aria-label="Fechar">
+      <i data-lucide="x" class="w-8 h-8"></i>
+    </button>
+    <img id="lightbox-image" src="" alt="" class="max-w-full max-h-[85vh] rounded-2xl shadow-2xl border-2 border-white/20 object-contain">
+  </div>
+
+  <!-- ============================================
+       SCRIPTS
+       Inicialização dos ícones Lucide + menu mobile
+       ============================================ -->
+  <script>
+    // Inicializa ícones Lucide
+    lucide.createIcons();
+    
+    // Ano dinâmico no rodapé
+    document.getElementById('ano').textContent = new Date().getFullYear();
+    
+    // Toggle menu mobile (hambúrguer)
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', function() {
+        const icon = this.querySelector('[data-lucide]') || this.querySelector('i');
+        mobileMenu.classList.toggle('hidden');
+        if (icon) {
+          icon.setAttribute('data-lucide', mobileMenu.classList.contains('hidden') ? 'menu' : 'x');
+          lucide.createIcons();
+        }
+      });
+      // Fecha menu ao clicar em um link (mobile)
+      document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          const icon = menuToggle.querySelector('[data-lucide]') || menuToggle.querySelector('i');
+          if (icon) {
+            icon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+          }
+        });
+      });
+    }
+    
+    // Previne submit do formulário (placeholder - integrar com backend depois)
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Formulário enviado! Em produção, integre com seu backend.');
+    });
+    
+    // Lightbox para imagens do Gestor de Mesa
+    const lightbox = document.getElementById('gestor-lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxClose = document.getElementById('lightbox-close');
+    
+    if (lightbox && lightboxImage) {
+    function openLightbox(src, alt) {
+      lightboxImage.src = src;
+      lightboxImage.alt = alt;
+      lightbox.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
+    
+    function closeLightbox() {
+      lightbox.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+    
+    document.querySelectorAll('.gestor-lightbox-img').forEach(img => {
+      img.addEventListener('click', () => openLightbox(img.dataset.src || img.src, img.alt));
+      img.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(img.dataset.src || img.src, img.alt);
+        }
+      });
+    });
+    
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox && !lightbox.classList.contains('hidden')) closeLightbox();
+    });
+    }
+  </script>
+</body>
+</html>
