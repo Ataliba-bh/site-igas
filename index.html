@@ -50,6 +50,19 @@
   
   <!-- Lucide Icons via CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Scroll Reveal - animação suave ao rolar -->
+  <style>
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body class="font-sans text-igas-dark bg-white antialiased">
 
@@ -73,8 +86,10 @@
           <a href="#jornada" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Jornada iGás</a>
           <a href="#app" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">O Aplicativo</a>
           <a href="#gestor" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Gestor de Mesa</a>
+          <a href="#diferenciais" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Diferenciais</a>
           <a href="#infra" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Infraestrutura</a>
           <a href="#produtos" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Produtos</a>
+          <a href="#recompensas" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Recompensas</a>
           <a href="#demonstracao" class="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-lg font-semibold transition-all shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40">
             Solicitar Demo
           </a>
@@ -93,9 +108,11 @@
         <a href="#jornada" class="block py-2 text-igas-steel hover:text-primary-600">Jornada iGás</a>
         <a href="#app" class="block py-2 text-igas-steel hover:text-primary-600">O Aplicativo</a>
         <a href="#gestor" class="block py-2 text-igas-steel hover:text-primary-600">Gestor de Mesa</a>
+        <a href="#diferenciais" class="block py-2 text-igas-steel hover:text-primary-600">Diferenciais</a>
         <a href="#infra" class="block py-2 text-igas-steel hover:text-primary-600">Infraestrutura</a>
         <a href="#produtos" class="block py-2 text-igas-steel hover:text-primary-600">Produtos</a>
-        <a href="#demonstracao" class="block py-3 text-center bg-primary-600 text-white rounded-lg font-semibold">Solicitar Demo</a>
+        <a href="#recompensas" class="block py-2 text-igas-steel hover:text-primary-600">Recompensas</a>
+        <a href="#contato" class="block py-3 text-center bg-primary-600 text-white rounded-lg font-semibold">Solicitar Demo</a>
       </div>
     </div>
   </nav>
@@ -105,7 +122,7 @@
        Título impactante + placeholder para imagem
        App + Desktop combinados
        ============================================ -->
-  <section class="pt-24 lg:pt-32 pb-16 lg:pb-24 bg-gradient-to-b from-igas-cloud/50 to-white">
+  <section class="scroll-reveal revealed pt-24 lg:pt-32 pb-16 lg:pb-24 bg-gradient-to-b from-igas-cloud/50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <!-- Conteúdo textual -->
@@ -177,11 +194,138 @@
   </section>
 
   <!-- ============================================
+       DIFERENCIAIS ESTRATÉGICOS
+       Operação enxuta + Fidelização por indicação
+       ============================================ -->
+  <section id="diferenciais" class="scroll-reveal py-20 lg:py-28 bg-gradient-to-b from-igas-cloud/50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-4">
+          Diferenciais
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-igas-dark tracking-tight">
+          Diferenciais Estratégicos
+        </h2>
+        <p class="mt-4 text-lg text-igas-mist leading-relaxed">
+          O que faz do iGás a escolha certa para quem quer escalar sem perder o controle.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
+        <!-- Card 1: Operação Enxuta -->
+        <div class="group relative overflow-hidden rounded-2xl bg-white/60 backdrop-blur-xl border border-white/90 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-primary-500/10 transition-all duration-300 p-8 lg:p-10">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary-50/30 via-transparent to-cyan-50/20"></div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center mb-6 shadow-lg shadow-primary-500/30 group-hover:scale-110 transition-transform">
+              <i data-lucide="zap" class="w-7 h-7 text-white"></i>
+            </div>
+            <span class="text-xs font-bold text-primary-600 uppercase tracking-widest">Operação Enxuta</span>
+            <h3 class="mt-3 font-bold text-igas-dark text-xl lg:text-2xl tracking-tight leading-snug">
+              Sua Distribuidora no Piloto Automático
+            </h3>
+            <p class="mt-5 text-igas-mist leading-relaxed text-[15px]">
+              Reduza custos operacionais imediatamente. Substitua uma equipe de 7 atendentes por apenas 1 gestor digital. Elimine erros de transcrição, endereços errados e o estresse das mensagens de voz.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Card 2: Fidelização e Indicação -->
+        <div class="group relative overflow-hidden rounded-2xl bg-white/60 backdrop-blur-xl border border-white/90 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-primary-500/10 transition-all duration-300 p-8 lg:p-10">
+          <div class="absolute inset-0 bg-gradient-to-br from-cyan-50/30 via-transparent to-primary-50/20"></div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center mb-6 shadow-lg shadow-primary-500/30 group-hover:scale-110 transition-transform">
+              <i data-lucide="users-round" class="w-7 h-7 text-white"></i>
+            </div>
+            <span class="text-xs font-bold text-primary-600 uppercase tracking-widest">Máquina de Fidelização</span>
+            <h3 class="mt-3 font-bold text-igas-dark text-xl lg:text-2xl tracking-tight leading-snug">
+              Crescimento Viral por Indicação
+            </h3>
+            <p class="mt-5 text-igas-mist leading-relaxed text-[15px]">
+              Transforme seus clientes em seus melhores vendedores. No sistema de fidelidade iGás, cada novo indicado que realiza a primeira compra ganha 10 pontos e ainda gera 10 pontos adicionais para quem o indicou. É um crescimento sustentável que fideliza toda a rede.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       TABELA DE PONTUAÇÃO iGÁS
+       Glassmorphism — sistema de pontuação
+       ============================================ -->
+  <section id="recompensas" class="scroll-reveal py-20 lg:py-28 bg-gradient-to-b from-igas-cloud/30 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-4">
+          Pontuação
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-igas-dark tracking-tight">
+          Tabela de Pontuação iGás
+        </h2>
+        <p class="mt-4 text-lg text-igas-mist leading-relaxed">
+          Acumule pontos a cada compra e indicação. Pontos acumulativos que nunca expiram.
+        </p>
+      </div>
+      
+      <div class="max-w-3xl mx-auto">
+        <div class="rounded-2xl bg-white/60 backdrop-blur-xl border border-white/90 shadow-xl shadow-slate-200/50 overflow-hidden">
+          <div class="divide-y divide-slate-200/60">
+            <!-- Compra de Gás -->
+            <div class="flex items-center gap-6 p-6 lg:p-8 hover:bg-white/40 transition-colors">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/25">
+                <i data-lucide="flame" class="w-7 h-7 text-white"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="font-bold text-igas-dark text-lg">Compra de Gás</h3>
+                <p class="text-igas-mist text-sm mt-0.5">Por botijão comprado</p>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-extrabold text-primary-600">5</span>
+                <span class="text-igas-mist font-medium">Pontos</span>
+              </div>
+            </div>
+            
+            <!-- Compra de Água -->
+            <div class="flex items-center gap-6 p-6 lg:p-8 hover:bg-white/40 transition-colors">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-cyan-500/25">
+                <i data-lucide="droplets" class="w-7 h-7 text-white"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="font-bold text-igas-dark text-lg">Compra de Água</h3>
+                <p class="text-igas-mist text-sm mt-0.5">Por galão comprado</p>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-extrabold text-primary-600">10</span>
+                <span class="text-igas-mist font-medium">Pontos</span>
+              </div>
+            </div>
+            
+            <!-- Indicação Premiada -->
+            <div class="flex items-center gap-6 p-6 lg:p-8 hover:bg-white/40 transition-colors">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary-500/25">
+                <i data-lucide="gift" class="w-7 h-7 text-white"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="font-bold text-igas-dark text-lg">Indicação Premiada</h3>
+                <p class="text-igas-mist text-sm mt-0.5">10 pontos para cada — na 1ª compra do indicado</p>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-extrabold text-primary-600">10</span>
+                <span class="text-igas-mist font-medium">Pontos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
        JORNADA iGÁS
        Como funciona o iGás no seu Smartphone
        5 passos sequenciais com espaço para imagens
        ============================================ -->
-  <section id="jornada" class="py-20 lg:py-28 bg-white">
+  <section id="jornada" class="scroll-reveal py-20 lg:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
         <span class="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-4">
@@ -310,7 +454,7 @@
        5 passos da jornada do cliente
        Destaque: cadastro fácil com CEP e endereço
        ============================================ -->
-  <section id="app" class="py-20 lg:py-28 bg-igas-cloud/30">
+  <section id="app" class="scroll-reveal py-20 lg:py-28 bg-igas-cloud/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
         <span class="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-4">
@@ -416,7 +560,7 @@
        GESTOR DE MESA (PC/MAC)
        Alerta sonoro + gestão de estoque/preços
        ============================================ -->
-  <section id="gestor" class="py-20 lg:py-28 bg-igas-cloud/30">
+  <section id="gestor" class="scroll-reveal py-20 lg:py-28 bg-igas-cloud/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <!-- Imagens do Gestor de Mesa -->
@@ -489,7 +633,7 @@
        INFRAESTRUTURA
        MySQL na nuvem - segurança dos dados
        ============================================ -->
-  <section id="infra" class="py-20 lg:py-28 bg-white">
+  <section id="infra" class="scroll-reveal py-20 lg:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center">
         <span class="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-4">
@@ -525,7 +669,7 @@
        PRODUTOS
        Cards: Gás (13kg, 20kg, 45kg) e Água (20L)
        ============================================ -->
-  <section id="produtos" class="py-20 lg:py-28 bg-igas-cloud/30">
+  <section id="produtos" class="scroll-reveal py-20 lg:py-28 bg-igas-cloud/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
         <span class="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-4">
@@ -583,7 +727,7 @@
        CONVERSÃO - Formulário + CTA
        Solicitar Demonstração
        ============================================ -->
-  <section id="demonstracao" class="py-20 lg:py-28 bg-gradient-to-br from-igas-dark via-igas-navy to-primary-950">
+  <section id="demonstracao" class="scroll-reveal py-20 lg:py-28 bg-gradient-to-br from-igas-dark via-igas-navy to-primary-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto">
         <div class="text-center mb-12">
@@ -646,6 +790,40 @@
        ============================================ -->
   <footer class="bg-igas-dark border-t border-slate-700/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <!-- Formulário de Contato - Solicitar Demonstração -->
+      <div id="contato" class="scroll-reveal mb-16 lg:mb-20">
+        <div class="max-w-2xl mx-auto">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-white">Solicitar Demonstração</h3>
+            <p class="mt-2 text-slate-400 text-sm">Preencha e nossa equipe entrará em contato pelo WhatsApp.</p>
+          </div>
+          <form id="form-contato" class="space-y-4 bg-white/5 backdrop-blur-md rounded-2xl p-6 lg:p-8 border border-white/10 shadow-xl">
+            <div>
+              <label for="contato-nome" class="block text-sm font-medium text-slate-200 mb-2">Nome</label>
+              <input type="text" id="contato-nome" name="nome" required 
+                class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition"
+                placeholder="Seu nome completo">
+            </div>
+            <div>
+              <label for="contato-empresa" class="block text-sm font-medium text-slate-200 mb-2">Empresa</label>
+              <input type="text" id="contato-empresa" name="empresa" 
+                class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition"
+                placeholder="Nome da distribuidora">
+            </div>
+            <div>
+              <label for="contato-whatsapp" class="block text-sm font-medium text-slate-200 mb-2">WhatsApp</label>
+              <input type="tel" id="contato-whatsapp" name="whatsapp" required 
+                class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition"
+                placeholder="(00) 00000-0000">
+            </div>
+            <button type="submit" class="w-full py-3 rounded-xl bg-primary-600 hover:bg-primary-500 text-white font-semibold transition-all flex items-center justify-center gap-2">
+              <i data-lucide="send" class="w-5 h-5"></i>
+              Enviar
+            </button>
+          </form>
+        </div>
+      </div>
+      
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
         <!-- Logo e descrição -->
         <div class="sm:col-span-2 lg:col-span-1">
@@ -670,13 +848,20 @@
             <li><a href="#jornada" class="text-slate-400 hover:text-white transition-colors">Jornada iGás</a></li>
             <li><a href="#app" class="text-slate-400 hover:text-white transition-colors">O Aplicativo</a></li>
             <li><a href="#gestor" class="text-slate-400 hover:text-white transition-colors">Gestor de Mesa</a></li>
+            <li><a href="#diferenciais" class="text-slate-400 hover:text-white transition-colors">Diferenciais</a></li>
             <li><a href="#produtos" class="text-slate-400 hover:text-white transition-colors">Produtos</a></li>
+            <li><a href="#recompensas" class="text-slate-400 hover:text-white transition-colors">Recompensas</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Contato</h4>
+          <ul class="space-y-2">
+            <li><a href="#contato" class="text-slate-400 hover:text-white transition-colors">Solicitar Demo</a></li>
           </ul>
         </div>
         <div>
           <h4 class="font-semibold text-white mb-4">Empresa</h4>
           <ul class="space-y-2">
-            <li><a href="#demonstracao" class="text-slate-400 hover:text-white transition-colors">Solicitar Demo</a></li>
             <li><a href="#infra" class="text-slate-400 hover:text-white transition-colors">Infraestrutura</a></li>
           </ul>
         </div>
@@ -712,6 +897,17 @@
     // Inicializa ícones Lucide
     lucide.createIcons();
     
+    // Scroll Reveal - revelação suave ao rolar a página
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    revealElements.forEach(el => revealObserver.observe(el));
+    
     // Ano dinâmico no rodapé
     document.getElementById('ano').textContent = new Date().getFullYear();
     
@@ -740,10 +936,12 @@
       });
     }
     
-    // Previne submit do formulário (placeholder - integrar com backend depois)
-    document.querySelector('form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Formulário enviado! Em produção, integre com seu backend.');
+    // Previne submit dos formulários (placeholder - integrar com backend depois)
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Formulário enviado! Em produção, integre com seu backend.');
+      });
     });
     
     // Lightbox para imagens do Gestor de Mesa
