@@ -173,40 +173,47 @@
         </div>
         
         <!-- Placeholder: Imagem combinando App + Desktop -->
-        <div class="relative">
-          <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-igas-navy to-igas-dark p-8 lg:p-12 shadow-2xl shadow-slate-900/20">
-            <!-- Mockup: Desktop à esquerda, smartphone à direita -->
-            <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8">
-              <!-- Mock Desktop -->
-              <div class="w-full max-w-[280px] lg:max-w-[320px]">
-                <div class="rounded-lg bg-slate-800/80 border border-slate-600/50 overflow-hidden">
-                  <div class="h-6 bg-slate-700/80 flex items-center gap-1.5 px-3">
-                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                  </div>
-                  <div class="h-40 lg:h-48 bg-slate-900/60 flex items-center justify-center">
-                    <i data-lucide="monitor" class="w-16 h-16 text-primary-400/60"></i>
-                  </div>
-                </div>
-                <p class="text-center text-slate-400 text-sm mt-2 font-medium">Gestor de Mesa</p>
-              </div>
-              <!-- Mock Smartphone -->
-              <div class="w-full max-w-[140px] lg:max-w-[160px]">
-                <div class="rounded-2xl bg-slate-800 border-2 border-slate-600/50 overflow-hidden shadow-xl">
-                  <div class="h-5 bg-slate-700 flex items-center justify-center">
-                    <div class="w-12 h-1.5 rounded-full bg-slate-600"></div>
-                  </div>
-                  <div class="h-36 lg:h-44 bg-slate-900/60 flex items-center justify-center">
-                    <i data-lucide="smartphone" class="w-12 h-12 text-primary-400/60"></i>
-                  </div>
-                </div>
-                <p class="text-center text-slate-400 text-sm mt-2 font-medium">App Cliente</p>
-              </div>
+
+        <div class="relative group">
+          <div class="relative rounded-3xl overflow-hidden bg-slate-900/60 backdrop-blur-2xl px-4 lg:px-6 py-10 lg:py-12 border border-white/10 shadow-2xl">
+            
+            <div class="mb-8 text-center">
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-[10px] uppercase tracking-[0.2em] font-bold">
+                <i data-lucide="zoom-in" class="w-3 h-3 text-primary-400"></i>
+                Clique na imagem para ampliar
+              </span>
             </div>
-            <!-- Badge "Screenshots em breve" -->
-            <div class="absolute bottom-4 right-4 px-3 py-1 rounded-lg bg-white/10 text-slate-300 text-xs">
-              Placeholder — Screenshots em breve
+
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16">
+              
+              <div class="relative w-full max-w-[500px] transition-all duration-500">
+                <div class="rounded-xl bg-slate-800 border border-slate-700 shadow-2xl overflow-hidden">
+                  <div class="h-7 bg-slate-700/50 flex items-center gap-1.5 px-3">
+                    <div class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
+                    <span class="text-[10px] text-slate-300 ml-2 font-medium">Gestor de Mesa — iGás</span>
+                  </div>
+                  <img src="imagens/gestor.jpg" alt="Gestor de Mesa" class="gestor-lightbox-img w-full h-auto cursor-pointer" data-src="imagens/gestor.jpg" role="button">
+                </div>
+                <p class="text-center text-white text-[11px] mt-4 uppercase tracking-[0.15em] font-black">Gestor Desktop</p>
+              </div>
+
+              <div class="relative w-[160px] lg:w-[200px] z-10 transition-all duration-500">
+                <div class="rounded-[2.8rem] bg-black border-[7px] border-slate-800 shadow-2xl overflow-hidden aspect-[9/19.5] cursor-pointer gestor-lightbox-img" data-src="imagens/1.jpg" role="button">
+                  <img src="imagens/1.jpg" alt="App Cliente" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute inset-0 rounded-[2.8rem] bg-gradient-to-tr from-white/5 to-transparent pointer-events-none"></div>
+                <p class="text-center text-white text-[11px] mt-4 uppercase tracking-[0.15em] font-black">App Mobile</p>
+              </div>
+
+            </div>
+
+            <div class="mt-10 text-center">
+              <p class="text-slate-300 text-sm lg:text-base font-medium flex items-center justify-center gap-3">
+                <i data-lucide="zap" class="w-5 h-5 text-primary-400"></i>
+                Tecnologia iGás: Sincronização instantânea em tempo real
+              </p>
             </div>
           </div>
         </div>
@@ -576,14 +583,32 @@
   <section id="gestor" class="scroll-reveal py-20 lg:py-28 bg-igas-cloud/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <!-- Imagens do Gestor de Mesa -->
+        <!-- Imagens do Gestor de Mesa: Monitor + Celular sincronizados -->
         <div class="order-2 lg:order-1 space-y-6 max-w-4xl">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <img src="imagens/gestor.jpg" alt="Gestor de Mesa iGás — visão geral do software" class="gestor-lightbox-img w-full rounded-2xl shadow-2xl border border-slate-200/50 hover:scale-105 transition-transform cursor-pointer" data-src="imagens/gestor.jpg" role="button" tabindex="0">
-            <img src="imagens/gestor_detalhe.jpg" alt="Gestor de Mesa iGás — detalhes do pedido em dois cliques" class="gestor-lightbox-img w-full rounded-2xl shadow-2xl border border-slate-200/50 hover:scale-105 transition-transform cursor-pointer" data-src="imagens/gestor_detalhe.jpg" role="button" tabindex="0">
+          <div class="relative flex items-end justify-start p-6 lg:p-8 rounded-2xl bg-white/40 backdrop-blur-xl border border-slate-200/50 shadow-2xl">
+            <!-- Monitor estilo macOS (esquerda/fundo) -->
+            <div class="relative flex-shrink-0 w-full max-w-[85%] lg:max-w-[75%]">
+              <div class="rounded-xl bg-slate-800/90 shadow-2xl overflow-hidden border border-slate-700/50">
+                <div class="flex items-center gap-2 px-3 py-2 bg-slate-800/95 border-b border-slate-700/50">
+                  <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                  <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                </div>
+                <img src="imagens/gestor.jpg" alt="Gestor de Mesa iGás — visão geral do software" class="gestor-lightbox-img w-full block hover:scale-105 transition-transform cursor-pointer" data-src="imagens/gestor.jpg" role="button" tabindex="0">
+              </div>
+            </div>
+            <!-- Celular (direita/frente, sobreposto) -->
+            <div class="absolute -right-2 bottom-0 lg:right-4 lg:bottom-4 w-[38%] max-w-[140px] lg:max-w-[180px] z-10">
+              <div class="relative rounded-[2rem] bg-slate-900 p-2 shadow-2xl border-2 border-slate-800">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-900 rounded-b-xl z-10"></div>
+                <div class="overflow-hidden rounded-[1.5rem] bg-slate-950 aspect-[9/19]">
+                  <img src="imagens/Passo1.jpg" alt="App iGás no celular" class="w-full h-full object-cover object-top" onerror="this.src='imagens/1.jpg'">
+                </div>
+              </div>
+            </div>
           </div>
           <p class="text-igas-mist text-sm lg:text-base leading-relaxed italic">
-            Agilidade total: com apenas dois cliques em qualquer pedido, você acessa instantaneamente os dados completos do comprador, endereço de entrega e itens solicitados.
+            Sincronização instantânea: O pedido entra no app e apita no seu gestor em menos de 1 segundo.
           </p>
         </div>
         
