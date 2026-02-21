@@ -62,6 +62,27 @@
       opacity: 1;
       transform: translateY(0);
     }
+    .jornada-carousel-track {
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .jornada-carousel-slide {
+      min-width: 100%;
+    }
+    .jornada-text-slide {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .jornada-text-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .jornada-dot.active {
+      width: 1rem;
+      background-color: rgb(37 99 235) !important;
+    }
   </style>
 </head>
 <body class="font-sans text-igas-dark bg-white antialiased">
@@ -339,11 +360,44 @@
         </p>
       </div>
       
-      <!-- 5 passos da jornada com espaço para imagens -->
-      <div class="space-y-12 lg:space-y-16">
-        <!-- Passo 1: Seleção de Produtos -->
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          <div class="order-2 lg:order-1 p-6 lg:p-8">
+      <!-- Showcase Dinâmico: Mockup + Carrossel -->
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Mockup de Smartphone com Carrossel -->
+        <div class="flex flex-col items-center lg:items-start order-1">
+          <div id="jornada-carousel-container" class="relative w-full max-w-[300px]">
+            <div class="rounded-[3rem] bg-slate-900 p-3 shadow-2xl border-4 border-slate-800">
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-900 rounded-b-2xl z-10"></div>
+              <div class="overflow-hidden rounded-[2.25rem] bg-slate-950 aspect-[9/19]">
+                <div id="jornada-carousel" class="relative h-full overflow-hidden" style="touch-action: pan-x;">
+                  <div id="jornada-track" class="jornada-carousel-track h-full flex">
+                    <div class="jornada-carousel-slide flex-shrink-0 w-full h-full"><img src="imagens/Passo1.jpg" alt="Passo 1" class="w-full h-full object-cover object-top" onerror="this.src='imagens/1.jpg'"></div>
+                    <div class="jornada-carousel-slide flex-shrink-0 w-full h-full"><img src="imagens/Passo2.jpg" alt="Passo 2" class="w-full h-full object-cover object-top" onerror="this.src='imagens/2.jpg'"></div>
+                    <div class="jornada-carousel-slide flex-shrink-0 w-full h-full"><img src="imagens/Passo3.jpg" alt="Passo 3" class="w-full h-full object-cover object-top" onerror="this.src='imagens/3.jpg'"></div>
+                    <div class="jornada-carousel-slide flex-shrink-0 w-full h-full"><img src="imagens/Passo4.jpg" alt="Passo 4" class="w-full h-full object-cover object-top" onerror="this.src='imagens/4.jpg'"></div>
+                    <div class="jornada-carousel-slide flex-shrink-0 w-full h-full"><img src="imagens/Passo5.jpg" alt="Passo 5" class="w-full h-full object-cover object-top" onerror="this.src='imagens/5.jpg'"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button id="jornada-prev" class="absolute -left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 backdrop-blur-md border border-white/60 shadow-xl hidden sm:flex items-center justify-center text-igas-dark hover:bg-white transition-all z-20" aria-label="Anterior">
+              <i data-lucide="chevron-left" class="w-6 h-6"></i>
+            </button>
+            <button id="jornada-next" class="absolute -right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 backdrop-blur-md border border-white/60 shadow-xl hidden sm:flex items-center justify-center text-igas-dark hover:bg-white transition-all z-20" aria-label="Próximo">
+              <i data-lucide="chevron-right" class="w-6 h-6"></i>
+            </button>
+          </div>
+          <div id="jornada-dots" class="flex gap-2 mt-6">
+            <button class="jornada-dot w-2.5 h-2.5 rounded-full bg-slate-300 transition-all duration-300 active" data-index="0" aria-label="Passo 1"></button>
+            <button class="jornada-dot w-2.5 h-2.5 rounded-full bg-slate-300 transition-all duration-300" data-index="1" aria-label="Passo 2"></button>
+            <button class="jornada-dot w-2.5 h-2.5 rounded-full bg-slate-300 transition-all duration-300" data-index="2" aria-label="Passo 3"></button>
+            <button class="jornada-dot w-2.5 h-2.5 rounded-full bg-slate-300 transition-all duration-300" data-index="3" aria-label="Passo 4"></button>
+            <button class="jornada-dot w-2.5 h-2.5 rounded-full bg-slate-300 transition-all duration-300" data-index="4" aria-label="Passo 5"></button>
+          </div>
+        </div>
+        
+        <!-- Textos sincronizados -->
+        <div class="order-2 relative min-h-[280px] lg:min-h-[320px] p-6 lg:p-8">
+          <div id="jornada-text-1" class="jornada-text-slide active p-6 lg:p-8">
             <div class="flex items-start gap-4">
               <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary-500/30">
                 <i data-lucide="shopping-bag" class="w-7 h-7 text-white"></i>
@@ -351,23 +405,11 @@
               <div>
                 <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 1</span>
                 <h3 class="mt-1 font-bold text-igas-dark text-xl">Escolha seu Produto</h3>
-                <p class="mt-3 text-igas-mist leading-relaxed">
-                  Uma vitrine intuitiva onde o cliente visualiza o catálogo completo de gás e água com apenas alguns toques.
-                </p>
+                <p class="mt-3 text-igas-mist leading-relaxed">Uma vitrine intuitiva onde o cliente visualiza o catálogo completo de gás e água com apenas alguns toques.</p>
               </div>
             </div>
           </div>
-          <div class="order-1 lg:order-2 p-6 lg:p-8">
-            <img src="imagens/1.jpg" alt="Passo 1 - Seleção de Produtos" class="max-w-[280px] h-auto rounded-lg mx-auto">
-          </div>
-        </div>
-
-        <!-- Passo 2: Detalhes e Quantidade -->
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          <div class="p-6 lg:p-8">
-            <img src="imagens/2.jpg" alt="Passo 2 - Detalhes e Quantidade" class="max-w-[280px] h-auto rounded-lg mx-auto">
-          </div>
-          <div class="p-6 lg:p-8">
+          <div id="jornada-text-2" class="jornada-text-slide p-6 lg:p-8">
             <div class="flex items-start gap-4">
               <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary-500/30">
                 <i data-lucide="list-checks" class="w-7 h-7 text-white"></i>
@@ -375,17 +417,11 @@
               <div>
                 <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 2</span>
                 <h3 class="mt-1 font-bold text-igas-dark text-xl">Personalize o Pedido</h3>
-                <p class="mt-3 text-igas-mist leading-relaxed">
-                  O cliente vê a foto real do produto, ajusta a quantidade necessária e adiciona ao carrinho com facilidade.
-                </p>
+                <p class="mt-3 text-igas-mist leading-relaxed">O cliente vê a foto real do produto, ajusta a quantidade necessária e adiciona ao carrinho com facilidade.</p>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Passo 3: Revisão do Carrinho -->
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          <div class="order-2 lg:order-1 p-6 lg:p-8">
+          <div id="jornada-text-3" class="jornada-text-slide p-6 lg:p-8">
             <div class="flex items-start gap-4">
               <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary-500/30">
                 <i data-lucide="shopping-cart" class="w-7 h-7 text-white"></i>
@@ -393,23 +429,11 @@
               <div>
                 <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 3</span>
                 <h3 class="mt-1 font-bold text-igas-dark text-xl">Revise sua Compra</h3>
-                <p class="mt-3 text-igas-mist leading-relaxed">
-                  Um carrinho organizado para conferir itens, valores e continuar comprando se desejar.
-                </p>
+                <p class="mt-3 text-igas-mist leading-relaxed">Um carrinho organizado para conferir itens, valores e continuar comprando se desejar.</p>
               </div>
             </div>
           </div>
-          <div class="order-1 lg:order-2 p-6 lg:p-8">
-            <img src="imagens/3.jpg" alt="Passo 3 - Revisão do Carrinho" class="max-w-[280px] h-auto rounded-lg mx-auto">
-          </div>
-        </div>
-
-        <!-- Passo 4: Escolha do Pagamento -->
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          <div class="p-6 lg:p-8">
-            <img src="imagens/4.jpg" alt="Passo 4 - Escolha do Pagamento" class="max-w-[280px] h-auto rounded-lg mx-auto">
-          </div>
-          <div class="p-6 lg:p-8">
+          <div id="jornada-text-4" class="jornada-text-slide p-6 lg:p-8">
             <div class="flex items-start gap-4">
               <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary-500/30">
                 <i data-lucide="wallet" class="w-7 h-7 text-white"></i>
@@ -417,17 +441,11 @@
               <div>
                 <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 4</span>
                 <h3 class="mt-1 font-bold text-igas-dark text-xl">Formas Flexíveis</h3>
-                <p class="mt-3 text-igas-mist leading-relaxed">
-                  Seleção rápida de pagamento: Dinheiro, PIX ou Cartão, direto pelo aplicativo.
-                </p>
+                <p class="mt-3 text-igas-mist leading-relaxed">Seleção rápida de pagamento: Dinheiro, PIX ou Cartão, direto pelo aplicativo.</p>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Passo 5: Confirmação de Entrega e Troco -->
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          <div class="order-2 lg:order-1 p-6 lg:p-8">
+          <div id="jornada-text-5" class="jornada-text-slide p-6 lg:p-8">
             <div class="flex items-start gap-4">
               <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary-500/30">
                 <i data-lucide="package-check" class="w-7 h-7 text-white"></i>
@@ -435,14 +453,9 @@
               <div>
                 <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 5</span>
                 <h3 class="mt-1 font-bold text-igas-dark text-xl">Entrega Garantida</h3>
-                <p class="mt-3 text-igas-mist leading-relaxed">
-                  Resumo final com local de entrega, valor total e cálculo de troco, garantindo segurança para quem compra e para quem entrega.
-                </p>
+                <p class="mt-3 text-igas-mist leading-relaxed">Resumo final com local de entrega, valor total e cálculo de troco, garantindo segurança para quem compra e para quem entrega.</p>
               </div>
             </div>
-          </div>
-          <div class="order-1 lg:order-2 p-6 lg:p-8">
-            <img src="imagens/5.jpg" alt="Passo 5 - Confirmação de Entrega e Troco" class="max-w-[280px] h-auto rounded-lg mx-auto">
           </div>
         </div>
       </div>
@@ -983,6 +996,72 @@
       if (e.key === 'Escape' && lightbox && !lightbox.classList.contains('hidden')) closeLightbox();
     });
     }
+    
+    // Carrossel Jornada iGás (Como Funciona - 5 passos)
+    (function() {
+      const track = document.getElementById('jornada-track');
+      const carousel = document.getElementById('jornada-carousel');
+      const container = document.getElementById('jornada-carousel-container');
+      const prevBtn = document.getElementById('jornada-prev');
+      const nextBtn = document.getElementById('jornada-next');
+      const dots = document.querySelectorAll('.jornada-dot');
+      const totalSlides = 5;
+      let currentIndex = 0;
+      let autoTimer = null;
+      let touchStartX = 0, touchEndX = 0;
+      
+      function goToSlide(index) {
+        currentIndex = ((index % totalSlides) + totalSlides) % totalSlides;
+        if (track) track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+        document.querySelectorAll('.jornada-text-slide').forEach((el, i) => {
+          el.classList.toggle('active', i === currentIndex);
+        });
+        lucide.createIcons();
+      }
+      
+      function next() { goToSlide(currentIndex + 1); }
+      function prev() { goToSlide(currentIndex - 1); }
+      
+      function startAuto() {
+        stopAuto();
+        autoTimer = setInterval(next, 6000);
+      }
+      function stopAuto() {
+        if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+      }
+      
+      if (prevBtn) prevBtn.addEventListener('click', () => { prev(); startAuto(); });
+      if (nextBtn) nextBtn.addEventListener('click', () => { next(); startAuto(); });
+      
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => { goToSlide(i); startAuto(); });
+      });
+      
+      if (container) {
+        container.addEventListener('mouseenter', stopAuto);
+        container.addEventListener('mouseleave', startAuto);
+      }
+      
+      if (carousel) {
+        carousel.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          stopAuto();
+        }, { passive: true });
+        carousel.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) next();
+            else prev();
+          }
+          startAuto();
+        }, { passive: true });
+      }
+      
+      startAuto();
+      goToSlide(0);
+    })();
   </script>
 </body>
 </html>
