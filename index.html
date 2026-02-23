@@ -109,7 +109,6 @@
           <a href="#gestor" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Gestor de Mesa</a>
           <a href="#diferenciais" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Diferenciais</a>
           <a href="#infra" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Infraestrutura</a>
-          <a href="#produtos" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Produtos</a>
           <a href="#recompensas" class="text-igas-steel hover:text-primary-600 transition-colors font-medium">Recompensas</a>
           <a href="#demonstracao" class="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-lg font-semibold transition-all shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40">
             Solicitar Demo
@@ -131,7 +130,6 @@
         <a href="#gestor" class="block py-2 text-igas-steel hover:text-primary-600">Gestor de Mesa</a>
         <a href="#diferenciais" class="block py-2 text-igas-steel hover:text-primary-600">Diferenciais</a>
         <a href="#infra" class="block py-2 text-igas-steel hover:text-primary-600">Infraestrutura</a>
-        <a href="#produtos" class="block py-2 text-igas-steel hover:text-primary-600">Produtos</a>
         <a href="#recompensas" class="block py-2 text-igas-steel hover:text-primary-600">Recompensas</a>
         <a href="#demonstracao" class="block py-3 text-center bg-primary-600 text-white rounded-lg font-semibold">Solicitar Demo</a>
       </div>
@@ -298,6 +296,20 @@
       <div class="max-w-3xl mx-auto">
         <div class="rounded-2xl bg-white/60 backdrop-blur-xl border border-white/90 shadow-xl shadow-slate-200/50 overflow-hidden">
           <div class="divide-y divide-slate-200/60">
+            <!-- Primeira Compra Premiada -->
+            <div class="flex items-center gap-6 p-6 lg:p-8 hover:bg-white/40 transition-colors">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-amber-500/25">
+                <i data-lucide="star" class="w-7 h-7 text-white"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="font-bold text-igas-dark text-lg">Primeira Compra Premiada</h3>
+                <p class="text-igas-mist text-sm mt-0.5">Desconto aplicado automaticamente pelo sistema</p>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-xl font-bold text-amber-600">Preço Especial</span>
+              </div>
+            </div>
+            
             <!-- Compra de Gás -->
             <div class="flex items-center gap-6 p-6 lg:p-8 hover:bg-white/40 transition-colors">
               <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/25">
@@ -350,7 +362,7 @@
               </div>
               <div class="flex-1 min-w-0">
                 <h3 class="font-bold text-igas-dark text-lg">Produtos Grátis</h3>
-                <p class="text-igas-mist text-sm mt-0.5">Troque seus pontos acumulados por recarga de botijão de gás ou galão de água</p>
+                <p class="text-igas-mist text-sm mt-0.5">O cliente junta 150 pontos e troca por uma recarga de Gás (13kg) ou Água (20L) inteiramente GRÁTIS! Fidelidade que gera economia real.</p>
               </div>
               <div class="flex items-baseline gap-1">
                 <span class="text-xl font-bold text-emerald-600">Troca</span>
@@ -446,7 +458,7 @@
               <div>
                 <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 1</span>
                 <h3 class="mt-1 font-bold text-igas-dark text-xl">Localização Inteligente</h3>
-                <p class="mt-3 text-igas-mist leading-relaxed">Inicie seu cadastro em um toque usando sua localização atual via GPS. O iGás identifica onde você está para agilizar o pedido, sem você precisar informar nomes de ruas ou números.</p>
+                <p class="mt-3 text-igas-mist leading-relaxed">Inicie seu cadastro em um toque usando sua localização atual via GPS. O sistema identifica novos usuários e aplica automaticamente um preço promocional na primeira compra, sem necessidade de cupons.</p>
               </div>
             </div>
           </div>
@@ -532,7 +544,7 @@
             <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Passo 1</span>
             <h3 class="mt-1 font-semibold text-igas-dark text-lg">Localização Inteligente</h3>
             <p class="mt-2 text-igas-mist text-sm">
-              Inicie seu cadastro em um toque usando sua localização atual via GPS. O iGás identifica onde você está para agilizar o pedido, sem você precisar informar nomes de ruas ou números.
+              Inicie seu cadastro em um toque usando sua localização atual via GPS. O sistema identifica novos usuários e aplica automaticamente um preço promocional na primeira compra, sem necessidade de cupons.
             </p>
           </div>
           <div class="hidden lg:block absolute top-1/2 -right-2 w-4 h-0.5 bg-slate-200"></div>
@@ -614,7 +626,7 @@
               Gestor de Mesa para PC e Mac
             </h2>
             <p class="text-lg text-slate-600 font-medium">
-              Controle total da operação na ponta dos dedos. Multiplataforma: roda em Windows e macOS. Nunca perca um pedido.
+              Controle total da operação na ponta dos dedos. Abandone a confusão das planilhas e do WhatsApp. Centralize pedidos, estoque e preços em uma plataforma robusta que roda em Windows e macOS.
             </p>
           </div>
       
@@ -711,65 +723,37 @@
             <i data-lucide="cloud" class="w-8 h-8 text-primary-600"></i>
             <span class="font-semibold text-igas-dark">Alta disponibilidade</span>
           </div>
+          <div class="flex items-center gap-3 px-6 py-4 rounded-xl bg-igas-cloud/50 border border-slate-200" title="Pronto para crescer com sua distribuidora, suportando de centenas a milhares de pedidos com estabilidade total.">
+            <i data-lucide="trending-up" class="w-8 h-8 text-primary-600"></i>
+            <span class="font-semibold text-igas-dark">Escalabilidade</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================
-       PRODUTOS
-       Cards: Gás (13kg, 20kg, 45kg) e Água (20L)
+       AINDA COM DÚVIDA? — Pergunte para uma IA
        ============================================ -->
-  <section id="produtos" class="scroll-reveal py-6 lg:py-8 bg-igas-cloud/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold mb-4">
-          Catálogo
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-bold text-igas-dark">
-          Gás e Água com facilidade
+  <section id="duvidas" class="scroll-reveal py-6 lg:py-8 bg-igas-cloud/30">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-igas-dark">
+          Ainda com dúvida? Pergunte para uma Inteligência Artificial.
         </h2>
         <p class="mt-4 text-lg text-igas-mist">
-          Produtos disponíveis para pedido direto pelo app. Gestão unificada no Gestor de Mesa.
+          Veja o que as maiores IAs do mundo dizem sobre o iGás.
         </p>
       </div>
-      
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Gás 13kg -->
-        <div class="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-primary-200 transition-all">
-          <div class="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
-            <i data-lucide="flame" class="w-7 h-7 text-orange-600"></i>
-          </div>
-          <h3 class="font-bold text-igas-dark text-xl">Gás 13kg</h3>
-          <p class="text-igas-mist mt-1 text-sm">Botijão P13 — uso residencial e comercial leve</p>
-        </div>
-        
-        <!-- Gás 20kg -->
-        <div class="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-primary-200 transition-all">
-          <div class="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
-            <i data-lucide="flame" class="w-7 h-7 text-orange-600"></i>
-          </div>
-          <h3 class="font-bold text-igas-dark text-xl">Gás 20kg</h3>
-          <p class="text-igas-mist mt-1 text-sm">Botijão P20 — uso residencial e comercial</p>
-        </div>
-        
-        <!-- Gás 45kg -->
-        <div class="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-primary-200 transition-all">
-          <div class="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
-            <i data-lucide="flame" class="w-7 h-7 text-orange-600"></i>
-          </div>
-          <h3 class="font-bold text-igas-dark text-xl">Gás 45kg</h3>
-          <p class="text-igas-mist mt-1 text-sm">Botijão P45 — uso comercial e industrial</p>
-        </div>
-        
-        <!-- Água 20L -->
-        <div class="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-primary-200 transition-all">
-          <div class="w-14 h-14 rounded-xl bg-cyan-100 flex items-center justify-center mb-4 group-hover:bg-cyan-200 transition-colors">
-            <i data-lucide="droplets" class="w-7 h-7 text-cyan-600"></i>
-          </div>
-          <h3 class="font-bold text-igas-dark text-xl">Água 20L</h3>
-          <p class="text-igas-mist mt-1 text-sm">Galão 20 litros — água purificada</p>
-        </div>
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-4">
+        <a href="https://chatgpt.com/?q=Quais+são+os+diferenciais+do+aplicativo+SandroGás.app+para+a+distribuidora?" target="_blank" rel="noopener noreferrer" class="w-full lg:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-semibold transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+          ChatGPT
+        </a>
+        <a href="https://www.perplexity.ai/search?q=Quais+são+os+diferenciais+do+aplicativo+SandroGás.app+para+a+distribuidora?" target="_blank" rel="noopener noreferrer" class="w-full lg:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white font-semibold transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+          <i data-lucide="search" class="w-5 h-5"></i>
+          Perplexity
+        </a>
       </div>
     </div>
   </section>
@@ -866,7 +850,6 @@
             <li><a href="#app" class="text-slate-400 hover:text-white transition-colors">O Aplicativo</a></li>
             <li><a href="#gestor" class="text-slate-400 hover:text-white transition-colors">Gestor de Mesa</a></li>
             <li><a href="#diferenciais" class="text-slate-400 hover:text-white transition-colors">Diferenciais</a></li>
-            <li><a href="#produtos" class="text-slate-400 hover:text-white transition-colors">Produtos</a></li>
             <li><a href="#recompensas" class="text-slate-400 hover:text-white transition-colors">Recompensas</a></li>
           </ul>
         </div>
